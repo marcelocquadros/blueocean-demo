@@ -28,10 +28,5 @@ pipeline {
         sh 'mvn dockerfile:build'
       }
     }
-    stage('Test Image') {
-      steps {
-        sh 'docker ps'
-      }
-    }
   }
 }
