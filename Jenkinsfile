@@ -30,7 +30,7 @@ pipeline {
     }
     stage('Test Image') {
       steps {
-        sh 'docker exec -it `docker ps -a --no-trunc -q | head -n 1` bash;'
+        sh 'docker ps'
       }
     }
   }
