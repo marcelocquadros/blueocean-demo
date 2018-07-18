@@ -2,8 +2,8 @@ pipeline {
   agent {
     docker {
       image 'maven:alpine'
-      args '-v $HOME/.m2:/root/.m2:z -u root'
       reuseNode true
+      args '-v $HOME/.m2:/root/.m2'
     }
 
   }
@@ -26,11 +26,6 @@ pipeline {
     stage('Build Docker Img') {
       steps {
         sh 'mvn dockerfile:build'
-      }
-    }
-    stage('Publish Image') {
-      steps {
-        sh 'mvn dockerfile:push'
       }
     }
   }
