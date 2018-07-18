@@ -28,10 +28,6 @@ pipeline {
       }
     }
     stage('Publish Image') {
-      environment {
-        user = 'marceloquadros'
-        pwd = 'P@ssw0rd'
-      }
       steps {
         sh 'mvn dockerfile:push'
       }
