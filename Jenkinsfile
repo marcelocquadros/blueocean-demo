@@ -1,22 +1,30 @@
 pipeline {
   agent {
-    kubernetes {
-      //cloud 'kubernetes'
-      label 'mypod'
-      containerTemplate {
-        name 'maven'
-        image 'maven:3.3.9-jdk-8-alpine'
-        ttyEnabled true
-        command 'cat'
-      }
+    docker {
+      image 'maven:alpine'
+      args '-v /Users/marcelo/.m2:/root/.m2'
     }
+
   }
   stages {
-    stage('Run maven') {
+    stage('Build') {
       steps {
-        container('maven') {
-          sh 'mvn -version'
-        }
+        sh 'mvn clean install -DskipTests'
+      }
+    }
+    stage('Unit Tests') {
+      steps {
+        sh 'mvn test'
+      }
+    }
+    stage('Publish Reports') {
+      steps {
+        junit 'target/surefire-reports/**/*.xml'
+      }
+    }
+    stage('Build Docker Img') {
+      steps {
+        sh 'mvn dockerfile:build'
       }
     }
   }
