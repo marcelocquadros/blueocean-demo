@@ -2,9 +2,9 @@ pipeline {
   agent {
     docker {
       image 'maven:alpine'
-      args '-v /Users/marcelo/.m2:/root/.m2'
+      args '-v $HOME/.m2:/root/.m2'
     }
-
+    
   }
   stages {
     stage('Build') {
