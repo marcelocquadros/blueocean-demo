@@ -1,14 +1,14 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: ${IMAGE}service
+  name: blueocean-demo-service
   labels:
-    app: ${IMAGE}service
+    app: blueocean-demo-service
 spec:
   ports:
      - protocol: TCP
        port: 8080
        targetPort: 8080
-  selector: 
-      app: ${IMAGE}
+  selector:
+      app: blueocean-demo
   type: NodePort

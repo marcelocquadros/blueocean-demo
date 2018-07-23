@@ -1,16 +1,16 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: ${IMAGE}
+  name: blueocean-demo
 spec:
   template:
     metadata:
       labels:
-        app: ${IMAGE}
+        app: blueocean-demo
     spec:
       containers:
-      - name: ${IMAGE}
-        image: marceloquadros/${IMAGE}:${VERSION}
+      - name: blueocean-demo
+        image: marceloquadros/blueocean-demo:0.0.1-SNAPSHOT
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
