@@ -1,14 +1,14 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: ${ARTIFACT_ID}-svc
+  name: $ARTIFACT_ID-svc
   labels:
-    app: ${ARTIFACT_ID}-svc
+    app: $ARTIFACT_ID-svc
 spec:
   ports:
      - protocol: TCP
        port: 8080
        targetPort: 8080
   selector:
-      app: ${ARTIFACT_ID}
+      app: $ARTIFACT_ID
   type: NodePort
