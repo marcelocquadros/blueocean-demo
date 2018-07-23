@@ -1,16 +1,16 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: ${artifactId}
+  name: ${IMAGE}
 spec:
   template:
     metadata:
       labels:
-        app: ${artifactId}
+        app: ${IMAGE}
     spec:
       containers:
-      - name: ${artifactId}
-        image: ${docker.registry}:${artifactId}
+      - name: ${IMAGE}
+        image: marceloquadros/${IMAGE}:${VERSION}
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
