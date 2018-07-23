@@ -1,9 +1,9 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: ${ARTIFACT_ID}.svc
+  name: ${ARTIFACT_ID}-svc
   labels:
-    app: ${ARTIFACT_ID}.svc
+    app: ${ARTIFACT_ID}-svc
 spec:
   ports:
      - protocol: TCP
