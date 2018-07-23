@@ -4,7 +4,7 @@ pipeline {
     stage('build') {
       steps {
         readMavenPom(file: 'pom.xml')
-        sh 'echo ${artifactId}'
+        sh 'echo $artifactId'
       }
     }
   }
