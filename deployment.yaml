@@ -10,7 +10,7 @@ spec:
     spec:
       containers:
       - name: blueocean-demo
-        image: marceloquadros/blueocean-demo:0.0.1-SNAPSHOT
+        image: marceloquadros/blueocean-demo:1.0.0-SNAPSHOT
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
